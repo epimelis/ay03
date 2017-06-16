@@ -7,11 +7,12 @@ import(
 func main() {
 
 	mux :=http.NewServeMux()
-	filesHandler :=http.FileServer("public")
+	filesHandler :=http.FileServer(http.Dir("public"))
 	mux.Handle("/static/", http.StripPrefix("/static/", filesHandler))
 
-	/*
+
 	mux.HandleFunc("/", index)
+	/*
 	mux.HandleFunc("/login", login)
 	mux.HandleFunc("/signup", signup)
 	*/
