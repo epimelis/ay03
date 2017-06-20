@@ -12,10 +12,18 @@ func main() {
 
 
 	mux.HandleFunc("/", index)
-	/*
 	mux.HandleFunc("/login", login)
+	mux.HandleFunc("/logout", logout)
 	mux.HandleFunc("/signup", signup)
-	*/
+	mux.HandleFunc("/signup_account", signupAccount)
+	mux.HandleFunc("/authenticate", authenticate)
+
+	mux.HandleFunc("/thread/new", newThread)
+	mux.HandleFunc("/thread/create", createThread)
+	mux.HandleFunc("/thread/post", postThread)
+	mux.HandleFunc("/thread/read", readThread)
+
+
 	server :=&http.Server{
 		Addr: "0.0.0.0:7777",
 		Handler: mux,
